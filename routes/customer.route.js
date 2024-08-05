@@ -11,6 +11,8 @@ createCustomer.post('/',createCustomerController)
 
 createCustomer.get('/',getCustomersController)
 
+createCustomer.get('/',ListCustomers)
+
 
 
 
