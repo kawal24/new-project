@@ -22,29 +22,40 @@
 
 const express = require('express');
  
-const mongoose =require('mongoose')
+const mongoose =require('mongoose');
+const { createCustomer ,ListCustomers } = require('./services/customer');
 
 
 const app=express();
 
 // connect with momngo dg
-const connectionString='mongodb://localhost:27017'
+const connectionString='mongodb+srv://kawaljit:*****@cluster0.qelonsb.mongodb.net/test'
 const dataBaseName='testapp'
 mongoose.connect(connectionString,{
     useNewUrlParser:true,
     useUnifiedTopology:true,
     dbName:dataBaseName
 }).then(()=>{
-    console.log('connected to database')}).catch((err)=>{
+    console.log('connected to database');
+})
+    .catch((err)=>{
         console.log("error connecting to database",err)
     })
 
-app.listen(3001,()=>{
-    console.log("server is running on port https:/localhost:3001");
+app.listen(3005,()=>{
+    console.log("server is running on port http://localhost:3005 /curtomers");
 })
+
 
 app.get("/",(req,res,next)=>{
     res.write(`hello world`)
-res.send()
-
 })
+app.get("/res", ()=>console.log("gefkldu"))
+
+// createc customer service/
+app.use(express.json())
+
+// 1 router ,2. middleware , 3.controller , .5 service
+
+
+app.use('/customers',createCustomer,ListCustomers)
