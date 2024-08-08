@@ -43,7 +43,7 @@ mongoose.connect(connectionString,{
     })
 
 app.listen(3005,()=>{
-    console.log("server is running on port http://localhost:3005 /curtomers");
+    console.log("server is running on port http://localhost:3005");
 })
 
 
@@ -59,3 +59,4 @@ app.use(express.json())
 
 
 app.use('/customers',createCustomer,ListCustomers)
+app.use('/book',bookRouter)

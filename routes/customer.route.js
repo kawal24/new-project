@@ -3,7 +3,7 @@ const express = require('express');
 const curtomersRouter = express.Router();
 
 const { createCustomer, ListCustomers } = require('../services/customer');
-const { getCustomersController } = require('../controller/customer.controller');
+const { getCustomersController, createCustomerController } = require('../controller/customer.controller');
 
 createCustomer.post('/',createCustomerController)
 
@@ -19,4 +19,4 @@ createCustomer.get('/',ListCustomers)
 
 
 
-module.export=curtomersRouter;
+module.exports=curtomersRouter;
